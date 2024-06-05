@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Вислови авторів</title>
+</head>
+<body>
+
+<script>
+  // Функція, яка виводить вислів автора
+  function displayQuote(author) {
+    var quote;
+    switch(author) {
+      case "Олесь":
+        quote = "Для всіх ти мертва і смішна, Для всіх ти бідна і нещасна, Моя Україно пре-красна, Пісень і волі сторона.";
+        break;
+      case "Толстой":
+        quote = "Л. Толстой: Слово є вчинок.";
+        break;
+      case "Міцкевич":
+        quote = "Народна пісня-духовне обличчя нації.";
+        break;
+      case "Довженко":
+        quote = "Українська пісня — це бездонна душа українського народу, це його слава.";
+        break;
+      case "Тичина":
+        quote = "Я єсть народ, якого Правди сила ніким звойована ще небула.";
+        break;
+      default:
+        quote = "Цього автора немає у списку.";
+    }
+    alert(quote);
+  }
+
+  // Створити кнопки з прізвищами авторів
+  var variantNumber = 22; // Замініть на свій порядковий номер
+  var authors = ["Олесь", "Толстой", "Міцкевич", "Довженко", "Тичина"];
+  for (var i = 0; i < authors.length; i++) {
+    var authorName = authors[i];
+    var button = document.createElement("button");
+    button.textContent = authorName;
+    button.addEventListener("click", (function(author) {
+      return function() {
+        displayQuote(author);
+      }
+    })(authorName));
+    document.body.appendChild(button);
+  }
+</script>
+
+</body>
+</html>
